@@ -1,0 +1,7 @@
+{
+    "*.(js|ts)": [
+        "pnpm lint:fix",
+        "pnpm lint",
+        "pnpm prettier --write"
+    ]
+}
