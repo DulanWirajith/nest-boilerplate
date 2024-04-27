@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
 import { validate } from './utils/config/env.validation';
+import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -14,12 +15,16 @@ import { validate } from './utils/config/env.validation';
       isGlobal: true,
       validate,
     }),
-    ThrottlerModule.forRoot([
-      {
-        ttl: 60000,
-        limit: 3,
-      },
-    ]),
+    ThrottlerModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => [
+        {
+          ttl: 60000,
+          limit: configService.get<number>('THROTTLE_LIMIT'),
+        },
+      ],
+    }),
   ],
   controllers: [AppController],
   providers: [

@@ -9,4 +9,8 @@ export class EnvironmentVariables {
   @Min(0)
   @Max(65535)
   PORT: number = 3000;
+
+  @IsNumber()
+  @Min(1)
+  THROTTLE_LIMIT: number = 10;
 }
