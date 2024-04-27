@@ -2,11 +2,18 @@ import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LoggerMiddleware } from './utils/middleware/logger.middleware';
+import { ConfigModule } from '@nestjs/config';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
+import { validate } from './utils/config/env.validation';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      cache: true,
+      isGlobal: true,
+      validate,
+    }),
     ThrottlerModule.forRoot([
       {
         ttl: 60000,
