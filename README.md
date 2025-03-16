@@ -1,4 +1,4 @@
-# AMS Nest Boilerplate
+# Nest Boilerplate
 
 A boilerplate project for building a backend projects using Nest.js.
 

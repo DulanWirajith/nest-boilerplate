@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+if ! head -1 "$1" | grep -qE "^(feat|fix|chore|docs|test|style|refactor|perf|build|ci|revert)(\(.+?\))?: .{1,}$"; then
+    echo "*** Aborting commit. Your commit message is invalid ***" >&2
+    echo "We are using conventional commit practices for this project. Please check this => https://www.conventionalcommits.org/en/v1.0.0/"
+    # shellcheck disable=SC2028
+    echo "If you are not familiar with conventional commits, please commit using 'git cz' command\n"
+    exit 1
+fi
+if ! head -1 "$1" | grep -qE "^.{1,88}$"; then
+    echo "*** Aborting commit. Your commit message is too long ***" >&2
+    exit 1
+fi
