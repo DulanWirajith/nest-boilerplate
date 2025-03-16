@@ -4,7 +4,7 @@ A boilerplate project for building a backend projects using Nest.js.
 
 ## Description
 
-AMS Nest Boilerplate is a comprehensive solution for rapidly developing APIs to manage within your organization. It leverages the power of Nest.js, a progressive Node.js framework, to provide a robust and scalable architecture for your backend services. With built-in support for authentication, data validation, logging, and more, AMS Nest Boilerplate accelerates your development process while ensuring code quality and maintainability.
+Nest Boilerplate is a comprehensive solution for rapidly developing APIs to manage within your organization. It leverages the power of Nest.js, a progressive Node.js framework, to provide a robust and scalable architecture for your backend services. With built-in support for authentication, data validation, logging, and more, Nest Boilerplate accelerates your development process while ensuring code quality and maintainability.
 
 Key features include:
 
