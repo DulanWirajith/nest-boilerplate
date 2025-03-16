@@ -161,3 +161,17 @@ class EnvironmentVariables {
 In this example, if `NEW_VARIABLE` is not set in the `environment variables(.env file)`, it will default to `10`.
 
 ---
+
+## Committing without running pre-commit hook
+```
+git commit -m 'commit message' --no-verify
+```
+
+## Committing using commitizen package
+commitizen package helps to work with conventional commits
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
+```
+git cz
+```
